@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Khunt | Python Full-Stack Developer</title>
+    
+    <style>
+        :root {
+            --primary-color: #3a795f; /* Deep Green */
+            --secondary-color: #e0f2f1; /* Light Teal */
+            --text-color: #333;
+            --light-bg: #f0f4f8;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling for nav links */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        /* HEADER AND NAVIGATION */
+        header {
+            background-color: var(--primary-color); 
+            color: white;
+            padding: 15px 0;
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            background-color: #2e604f;
+        }
+        /* HERO SECTION */
+        #home {
+            text-align: center;
+            padding: 100px 0;
+            background-color: var(--secondary-color);
+        }
+        #home h1 {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .btn-primary {
+            display: inline-block;
+            margin: 15px;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        /* GENERAL HEADINGS */
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        /* PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s;
+            text-align: left;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .tech-tag {
+            display: inline-block;
+            background: #c8e6c9; 
+            color: #1b5e20;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+        .project-card button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .project-details {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+        }
+        .project-details h4 {
+            color: var(--primary-color);
+        }
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        /* SKILLS */
+        #skills .skill-group {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        #skills .skill-group h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skill-list li {
+            background: #a5d6a7; 
+            color: #004d40;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        /* EXPERIENCE */
+        .job-entry {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+            box-shadow: var(--card-shadow);
+        }
+        .job-entry h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #2e604f;
+        }
+        .job-entry ul {
+            padding-left: 20px;
+        }
+        /* FOOTER & CONTACT */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="container">
+        <h1>Aaryan Khunt</h1>
+        <p>A Passionate **Python Developer** | Crafting **Backend** and **Data** Solutions</p>
+        <a href="https://drive.google.com/file/d/1_brYv8RZIGv-xRPMjZH9XMyKS3WCFIA6/view?usp=drivesdk" target="_blank" class="btn-primary">Download Resume</a>
+        <a href="#projects" class="btn-primary">See My Work</a>
+    </section>
+    
+    <section id="projects" class="container">
+        <h2>🐍 Featured Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <h3>AMAZON WEBSITE CLONE</h3>
+                <p>I developed an Amazon clone with my colleagues,in which we used HTML,CSS, and PHP.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JAVASCRIPT</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">DATABASE:MYSQL DATABASE</span>
+                </div>
+                <!-- <button onclick="toggleDetails('project-1-details')">View Case Study</button>
+                <div id="project-1-details" class="project-details">
+                    <h4>Challenge & Solution</h4>
+                    <p>Built a token-based authentication system to secure endpoints. Used Flask Blueprints for modularization and SQLAlchemy migrations for database management.</p>
+                    <ul>
+                        <li>**Data Model:** Defined robust relationships between products, users, and orders.</li>
+                        <li>**Performance:** Optimized database queries for fast lookup and transaction processing.</li>
+                    </ul>
+                    <a href="[YOUR_GITHUB_LINK_1]" target="_blank" class="btn-primary" style="padding: 5px 10px;">GitHub Repo</a>
+                </div> -->
+            </div>
+
+            <div class="project-card">
+                <h3>LIBRARY MANAGEMENT SYSTEM</h3>
+                <p>In this project, we developed a proper library management system
+                 for books, students' IDs, and other items. We have used HTML,
+                 CSS, and PHP.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JAVASCRIPT</span>
+                    <span class="tech-tag">DATABASE:MYSQL DATABASE</span>
+                </div>
+                <!-- <button onclick="toggleDetails('project-2-details')">View Case Study</button>
+                <div id="project-2-details" class="project-details">
+                    <h4>Challenge & Solution</h4>
+                    <p>Handled missing values, standardized formats, and performed cross-column validation across datasets exceeding 1GB, ensuring data quality before warehousing.</p>
+                    <ul>
+                        <li>**Validation:** Implemented strict error logging for rows failing validation rules.</li>
+                        <li>**Efficiency:** Used optimized Pandas methods to minimize memory usage during processing.</li>
+                    </ul>
+                    <a href="[YOUR_GITHUB_LINK_2]" target="_blank" class="btn-primary" style="padding: 5px 10px;">GitHub Repo</a>
+                </div> -->
+            </div>
+            
+            <div class="project-card">
+                <h3>BIKE RENTAL SYSTEM</h3>
+                <p>Devloped a Bike Rental Project Using Python With Django .Guidance by satvarth solutions at Ahmedabad</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python CLI</span>
+                    <span class="tech-tag">os/shutil</span>
+                    <span class="tech-tag">Automation</span>
+                    <span class="tech-tag">Regex</span>
+                </div>
+                <!-- <button onclick="toggleDetails('project-3-details')">View Case Study</button> -->
+                <!-- <div id="project-3-details" class="project-details">
+                    <h4>Challenge & Solution</h4>
+                    <p>Needed a simple, zero-dependency tool for routine desktop file management. Focused on robustness in handling file permissions and path errors.</p>
+                    <ul>
+                        <li>**Modularity:** Uses argparse for clean command-line interface.</li>
+                        <li>**Cross-platform:** Designed with `os.path` functions to ensure compatibility across Windows, Mac, and Linux.</li>
+                    </ul>
+                    <a href="[YOUR_GITHUB_LINK_3]" target="_blank" class="btn-primary" style="padding: 5px 10px;">GitHub Repo</a>
+                </div> -->
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2>🛠️ Technical Expertise</h2>
+        
+        <div class="skill-group">
+            <h3>Core Python & Data Stack</h3>
+            <ul class="skill-list">
+                <li>Python 3.x (OOP, Multithreading)</li>
+                <li>Pandas / NumPy</li>
+                <!-- <li>Data Structures & Algorithms</li> -->
+                <li>SQLite / PostgreSQL</li>
+            </ul>
+        </div>
+        
+        <div class="skill-group">
+            <h3>Web Development & Frameworks</h3>
+            <ul class="skill-list">
+                <li> Django (Basic)</li>
+                <!-- <li>RESTful API Design</li> -->
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <!-- <li>Jinja2 Templating</li> -->
+            </ul>
+        </div>
+        
+        <div class="skill-group">
+            <h3>Tools & DevOps</h3>
+            <ul class="skill-list">
+                <li>Git / GitHub</li>
+                <!-- <li>Docker / Docker Compose (Basic)</li> -->
+                <li>Linux CLI</li>
+                <li>VS Code</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2>💼 Professional Experience</h2>
+        
+        <div class="job-entry">
+            <h3>Junior Backend Developer | Tech Solutions Inc.</h3>
+            <p>2025 - Present</p>
+            <ul>
+                <li>**Automated** nightly data ingestion scripts using Python, **reducing manual processing time by 15 hours per week**.</li>
+                <li>Developed and maintained features for a **Flask-based API**, handling over 10,000 requests daily.</li>
+                <li>Participated in code reviews and utilized Gitflow branching strategies for collaborative development.</li>
+            </ul>
+        </div>
+        
+        <!-- <div class="job-entry">
+            <h3>Data Entry Specialist (Intern) | Global Data Corp</h3>
+            <p>2023</p>
+            <ul>
+                <li>Wrote small Python scripts to clean and standardize CSV files before entering them into the database.</li>
+            </ul>
+        </div> -->
+    </section>
+    
+    <section id="contact" class="container">
+        <h2>📞 Get In Touch</h2>
+        <p style="text-align: center;">I am actively seeking full-time backend and automation roles. Let's build something efficient.</p>
+        <p style="text-align: center;">Email: <a href="khuntaaryan@gmail.com" class="btn-primary">Send Email</a></p>
+        <p style="text-align: center;">Phone: +91 63562 98807</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 KHUNT ARYAN | Connect: +91 63562 98807
+            <a href=https://www.linkedin.com/in/aaryan-khunt-1b3427313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app target="_blank">LinkedIn</a> 
+            <a href=https://github.com/khuntaaryan-droid target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        // JS for toggling project case studies (following the linked portfolio's detail function)
+        function toggleDetails(projectId) {
+            const detailElement = document.getElementById(projectId);
+            if (detailElement) {
+                // Toggles the display between 'none' and 'block'
+                detailElement.style.display = (detailElement.style.display === 'block' || detailElement.style.display === '') ? 'none' : 'block';
+            }
+        }
+
+        // JS for highlighting the active link based on scroll position (multipage illusion)
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let currentSectionId = '';
+                
+                // Iterate backwards to prioritize sections higher up the page when scrolling
+                for(let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    // Check if the scroll position is past the start of the section
+                    // 150px offset provides a cleaner activation point below the sticky header
+                    if (window.scrollY >= section.offsetTop - 150) { 
+                        currentSectionId = section.getAttribute('id');
+                        break;
+                    }
+                }
+
+                // Update the 'active' class on the navigation links
+                navLinks.forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href').includes(currentSectionId)) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+            
+            // Set initial active link on page load
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+
+</body>
+</html>
